@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "ES5",
+        "esModuleInterop": true,
+        "jsx": "react",
+        "lib": ["dom", "ESNext"],
+        "strict": true,
+        "sourceMap": true,
+        "moduleResolution": "node"
+    },
+    "include": ["src"],
+    "exclude": [
+        "node_modules"
+    ]
+}
