@@ -35,6 +35,9 @@ module.exports = {
                     chunks: "all"
                 }
             }
+        },
+        runtimeChunk: {
+            name: 'manifest'
         }
     },
     devtool: prod ? undefined : 'source-map',
