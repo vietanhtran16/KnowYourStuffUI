@@ -9,7 +9,7 @@ const plugins = [
         template: './src/index.html'
     }),
     new MiniCssExtractPlugin({
-        filename: "/styles/[name].[contenthash].css"
+        filename: "./styles/[name].[contenthash].css"
     }),
 ];
 const isAnalyzingBundle = process.env.BUNDLE_ANALYZE !== undefined
