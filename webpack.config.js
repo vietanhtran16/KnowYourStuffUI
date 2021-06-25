@@ -26,6 +26,17 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    name: "node_vendors",
+                    test: /node_modules/,
+                    chunks: "all"
+                }
+            }
+        }
+    },
     devtool: prod ? undefined : 'source-map',
     plugins: [
         new HtmlWebpackPlugin({
