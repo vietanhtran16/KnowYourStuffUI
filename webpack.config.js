@@ -8,7 +8,9 @@ const plugins = [
     new HtmlWebpackPlugin({
         template: './src/index.html'
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+        filename: "/styles/[name].[contenthash].css"
+    }),
 ];
 const isAnalyzingBundle = process.env.BUNDLE_ANALYZE !== undefined
 if (isAnalyzingBundle) {
@@ -20,6 +22,7 @@ module.exports = {
     entry: './src/index.tsx',
     output: {
         path: __dirname + '/dist/',
+        filename: "[name].[contenthash].js",
         clean: true
     },
     resolve: {
