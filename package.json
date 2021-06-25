@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --port 3000",
     "build": "NODE_ENV=production webpack",
-    "build:analyze": "npm run build -- --profile --json"
+    "build:analyze": "BUNDLE_ANALYZE=true npm run build"
   },
   "repository": {
     "type": "git",

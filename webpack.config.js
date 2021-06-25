@@ -4,6 +4,17 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 const prod = process.env.NODE_ENV === "production";
 
+const plugins = [
+    new HtmlWebpackPlugin({
+        template: './src/index.html'
+    }),
+    new MiniCssExtractPlugin(),
+];
+const isAnalyzingBundle = process.env.BUNDLE_ANALYZE !== undefined
+if (isAnalyzingBundle) {
+    plugins.push(new BundleAnalyzerPlugin());
+}
+
 module.exports = {
     mode: prod ? 'production' : 'development',
     entry: './src/index.tsx',
@@ -41,11 +52,5 @@ module.exports = {
         }
     },
     devtool: prod ? undefined : 'source-map',
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        }),
-        new MiniCssExtractPlugin(),
-        new BundleAnalyzerPlugin()
-    ]
+    plugins
 }
