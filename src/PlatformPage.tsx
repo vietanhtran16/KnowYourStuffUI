@@ -25,7 +25,7 @@ export const PlatformPage: React.FC = () => {
   return (
     <>
       {platforms?.map((platform) => (
-        <Platform {...platform} />
+        <Platform key={platform.id} {...platform} />
       ))}
     </>
   );
