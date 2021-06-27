@@ -7,17 +7,23 @@ import {
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import React from "react";
 
-export const Platform = () => (
+interface PlatformProps {
+  id: string;
+  name: string;
+  description?: string;
+}
+
+export const Platform: React.FC<PlatformProps> = ({ name, description }) => (
   <Accordion>
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
       aria-controls="panel1a-content"
       id="panel1a-header"
     >
-      <Typography>Platform Name</Typography>
+      <Typography>{name}</Typography>
     </AccordionSummary>
     <AccordionDetails>
-      <Typography>Platform Descrition</Typography>
+      <Typography>{description || "No description"}</Typography>
     </AccordionDetails>
   </Accordion>
 );
