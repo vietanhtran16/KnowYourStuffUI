@@ -2,7 +2,7 @@ import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import React from "react";
 import { useQuery, useQueryClient } from "react-query";
-import { Platform } from "./Platform";
+import { Platform } from "../components/Platform";
 
 const apiBaseUrl = "https://localhost:5001/api";
 

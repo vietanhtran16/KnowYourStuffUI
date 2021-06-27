@@ -1,8 +1,8 @@
 import { Container, makeStyles } from "@material-ui/core";
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Header } from "./Header";
-import { PlatformPage } from "./PlatformPage";
+import { Header } from "./components/Header";
+import { PlatformPage } from "./pages/PlatformPage";
 
 const queryClient = new QueryClient();
 
