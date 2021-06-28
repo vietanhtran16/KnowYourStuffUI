@@ -34,10 +34,12 @@ export const Platform: React.FC<PlatformProps> = ({
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography>{name}</Typography>
+        <Typography variant="h6">{name}</Typography>
       </AccordionSummary>
       <AccordionDetails classes={{ root: classes.root }}>
-        <Typography>{description || "No description"}</Typography>
+        <Typography>
+          {description ? `Description: ${description}` : "No description"}
+        </Typography>
         <Tips platformId={id} />
       </AccordionDetails>
     </Accordion>
