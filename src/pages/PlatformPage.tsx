@@ -3,6 +3,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { Platform } from "../components/Platform";
 import { getPlatforms } from "../services/api";
+import { FavouritePlatformsCountContextProvider } from "../state/favourite-platforms-count";
 
 export const PlatformPage: React.FC = () => {
   const { isLoading, data: platforms } = useQuery("platforms", getPlatforms);
@@ -11,10 +12,10 @@ export const PlatformPage: React.FC = () => {
   }
 
   return (
-    <>
+    <FavouritePlatformsCountContextProvider>
       {platforms?.map((platform) => (
         <Platform key={platform.id} {...platform} />
       ))}
-    </>
+    </FavouritePlatformsCountContextProvider>
   );
 };
