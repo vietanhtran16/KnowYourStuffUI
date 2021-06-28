@@ -39,7 +39,7 @@ export const Platform: React.FC<PlatformProps> = ({
   description,
 }) => {
   const classes = useStyles();
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [hasLoadedTipList, setHasLoadedTipList] = useState(false);
   const [isFavourite, setIsFavourite] = useState(false);
 
   const { increment, decrement } = useFavouritePlatformsCountContext();
@@ -55,7 +55,13 @@ export const Platform: React.FC<PlatformProps> = ({
   };
 
   return (
-    <Accordion onChange={(_, expanded) => setIsExpanded(expanded)}>
+    <Accordion
+      onChange={(_, expanded) => {
+        if (!hasLoadedTipList && expanded) {
+          setHasLoadedTipList(true);
+        }
+      }}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
@@ -73,7 +79,7 @@ export const Platform: React.FC<PlatformProps> = ({
         <Typography className={classes.description}>
           {description ? `Description: ${description}` : "No description"}
         </Typography>
-        {isExpanded && <TipList platformId={id} />}
+        {hasLoadedTipList && <TipList platformId={id} />}
       </AccordionDetails>
     </Accordion>
   );
