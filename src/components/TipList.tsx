@@ -5,24 +5,21 @@ import { getPlatformTips } from "../services/api";
 import { Tip } from "./Tip";
 
 interface TipListProps {
-  platformId: string;
+    platformId: string;
 }
 
-export const TipList: React.FC<TipListProps> = ({ platformId }) => {
-  const { isLoading, data: tips } = useQuery(
-    ["platform-tips", platformId],
-    () => getPlatformTips(platformId)
-  );
+export const TipList: React.FC<TipListProps> = ({ platformId }: TipListProps) => {
+    const { isLoading, data: tips } = useQuery(["platform-tips", platformId], () => getPlatformTips(platformId));
 
-  if (isLoading) {
-    return <CircularProgress />;
-  }
+    if (isLoading) {
+        return <CircularProgress />;
+    }
 
-  return (
-    <>
-      {tips?.map((tip) => (
-        <Tip {...tip} />
-      ))}
-    </>
-  );
+    return (
+        <>
+            {tips?.map((tip) => (
+                <Tip key={tip.id} {...tip} />
+            ))}
+        </>
+    );
 };

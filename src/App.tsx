@@ -8,21 +8,21 @@ import { FavouritePlatformsCountContextProvider } from "./state/favourite-platfo
 const queryClient = new QueryClient();
 
 const useStyles = makeStyles({
-  container: {
-    marginTop: "20px",
-  },
+    container: {
+        marginTop: "20px",
+    },
 });
 
 export const App: React.FC = () => {
-  const classes = useStyles();
-  return (
-    <QueryClientProvider client={queryClient}>
-      <FavouritePlatformsCountContextProvider>
-        <Header />
-        <Container className={classes.container} maxWidth="lg">
-          <PlatformPage />
-        </Container>
-      </FavouritePlatformsCountContextProvider>
-    </QueryClientProvider>
-  );
+    const classes = useStyles();
+    return (
+        <QueryClientProvider client={queryClient}>
+            <FavouritePlatformsCountContextProvider>
+                <Header />
+                <Container className={classes.container} maxWidth="lg">
+                    <PlatformPage />
+                </Container>
+            </FavouritePlatformsCountContextProvider>
+        </QueryClientProvider>
+    );
 };
