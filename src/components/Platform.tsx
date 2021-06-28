@@ -7,7 +7,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
-import { Tips } from "./Tips";
+import { TipList } from "./TipList";
 
 const useStyles = makeStyles({
   root: {
@@ -40,7 +40,7 @@ export const Platform: React.FC<PlatformProps> = ({
         <Typography>
           {description ? `Description: ${description}` : "No description"}
         </Typography>
-        <Tips platformId={id} />
+        <TipList platformId={id} />
       </AccordionDetails>
     </Accordion>
   );
