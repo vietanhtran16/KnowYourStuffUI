@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionSummary,
@@ -14,6 +14,9 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
   },
+  description: {
+    marginBottom: "12px",
+  },
 });
 interface PlatformProps {
   id: string;
@@ -27,8 +30,9 @@ export const Platform: React.FC<PlatformProps> = ({
   description,
 }) => {
   const classes = useStyles();
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <Accordion>
+    <Accordion onChange={(_, expanded) => setIsExpanded(expanded)}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
@@ -37,10 +41,10 @@ export const Platform: React.FC<PlatformProps> = ({
         <Typography variant="h6">{name}</Typography>
       </AccordionSummary>
       <AccordionDetails classes={{ root: classes.root }}>
-        <Typography>
+        <Typography className={classes.description}>
           {description ? `Description: ${description}` : "No description"}
         </Typography>
-        <TipList platformId={id} />
+        {isExpanded && <TipList platformId={id} />}
       </AccordionDetails>
     </Accordion>
   );
