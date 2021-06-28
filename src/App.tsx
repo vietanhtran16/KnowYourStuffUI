@@ -3,6 +3,7 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Header } from "./components/Header";
 import { PlatformPage } from "./pages/PlatformPage";
+import { FavouritePlatformsCountContextProvider } from "./state/favourite-platforms-count";
 
 const queryClient = new QueryClient();
 
@@ -16,10 +17,12 @@ export const App: React.FC = () => {
   const classes = useStyles();
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <Container className={classes.container} maxWidth="lg">
-        <PlatformPage />
-      </Container>
+      <FavouritePlatformsCountContextProvider>
+        <Header />
+        <Container className={classes.container} maxWidth="lg">
+          <PlatformPage />
+        </Container>
+      </FavouritePlatformsCountContextProvider>
     </QueryClientProvider>
   );
 };

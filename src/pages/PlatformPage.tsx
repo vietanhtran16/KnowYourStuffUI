@@ -12,10 +12,10 @@ export const PlatformPage: React.FC = () => {
   }
 
   return (
-    <FavouritePlatformsCountContextProvider>
+    <>
       {platforms?.map((platform) => (
         <Platform key={platform.id} {...platform} />
       ))}
-    </FavouritePlatformsCountContextProvider>
+    </>
   );
 };
