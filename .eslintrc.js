@@ -25,5 +25,6 @@ module.exports = {
         "@typescript-eslint/no-empty-function": "off",
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/explicit-module-boundary-types": "off"
     },
 };

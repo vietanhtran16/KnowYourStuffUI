@@ -13,7 +13,9 @@ const useStyles = makeStyles({
 
 export const Header = () => {
     const classes = useStyles();
-    const { count } = useFavouritePlatformsCountContext();
+    const {
+        state: { count },
+    } = useFavouritePlatformsCountContext();
     return (
         <AppBar className={classes.appBar} position="sticky">
             <Toolbar classes={{ root: classes.toolbarRoot }}>
