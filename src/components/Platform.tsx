@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { BaseSyntheticEvent, useState } from "react";
 import { Accordion, AccordionSummary, Typography, AccordionDetails, makeStyles } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
@@ -33,7 +33,7 @@ export const Platform: React.FC<PlatformProps> = ({ id, name, description }: Pla
     const [isFavourite, setIsFavourite] = useState(false);
 
     const { increment, decrement } = useFavouritePlatformsCountContext();
-    const handleSelectFavourite = (event: any) => {
+    const handleSelectFavourite = (event: BaseSyntheticEvent) => {
         event.stopPropagation();
         if (isFavourite) {
             setIsFavourite(false);
