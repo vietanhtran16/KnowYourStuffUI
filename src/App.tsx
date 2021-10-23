@@ -13,7 +13,6 @@ const useStyles = makeStyles({
     },
 });
 
-
 export const App: React.FC = () => {
     const classes = useStyles();
     return (

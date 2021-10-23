@@ -1,5 +1,4 @@
 import { Button, Grid, TextField, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
 import React, { FormEvent, useState } from "react";
 import { useCreatePlatform } from "../hooks/platforms";
 import { NewPlatform } from "../services/api";
