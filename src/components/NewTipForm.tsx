@@ -6,9 +6,10 @@ import { useCreateTip } from "../hooks/tips";
 
 interface Props {
     platformId: string;
+    className?: string;
 }
 
-export const NewTipForm: React.FC<Props> = ({ platformId }: Props) => {
+export const NewTipForm: React.FC<Props> = ({ platformId, className }: Props) => {
     const defaultState: NewTip = { description: "", snippet: "" };
     const [tip, setTip] = useState<NewTip>(defaultState);
     const { mutate } = useCreateTip();
@@ -19,7 +20,7 @@ export const NewTipForm: React.FC<Props> = ({ platformId }: Props) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={className}>
             <Grid container alignItems="center" spacing={3}>
                 <Grid item>
                     <TextField
