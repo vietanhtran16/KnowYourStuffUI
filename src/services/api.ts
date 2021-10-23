@@ -31,5 +31,5 @@ export interface NewTip {
     snippet: string;
 }
 
-export const addTipToPlatform = (newTip: NewTip, platformId: string) =>
-    post<Tip>(`${apiBaseUrl}/Platforms/${platformId}/Tips`, newTip);
+export const createTip = (tip: NewTip, platformId: string) =>
+    post<Tip>(`${apiBaseUrl}/Platforms/${platformId}/Tips`, tip);
