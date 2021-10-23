@@ -1,4 +1,4 @@
-import { get } from "./http-client";
+import { get, post } from "./http-client";
 
 const apiBaseUrl = "https://localhost:5001/api";
 
@@ -18,3 +18,10 @@ interface Tip {
 }
 
 export const getPlatformTips = (platformId: string) => get<Tip[]>(`${apiBaseUrl}/Platforms/${platformId}/Tips`);
+
+export interface NewPlatform {
+    name: string;
+    description?: string;
+}
+
+export const createPlatform = (newPlatform: NewPlatform) => post<Platform>(`${apiBaseUrl}/Platforms`, newPlatform);
