@@ -1,4 +1,4 @@
-import axios from "axios";
+import { get } from "./http-client";
 
 const apiBaseUrl = "https://localhost:5001/api";
 
@@ -8,10 +8,7 @@ export interface Platform {
     description?: string;
 }
 
-export const getPlatforms = async () => {
-    const result = await axios.get<Platform[]>(`${apiBaseUrl}/Platforms`);
-    return result.data;
-};
+export const getPlatforms = () => get<Platform[]>(`${apiBaseUrl}/Platforms`);
 
 interface Tip {
     id: string;
@@ -20,7 +17,4 @@ interface Tip {
     platformId: string;
 }
 
-export const getPlatformTips = async (platformId: string) => {
-    const result = await axios.get<Tip[]>(`${apiBaseUrl}/Platforms/${platformId}/Tips`);
-    return result.data;
-};
+export const getPlatformTips = (platformId: string) => get<Tip[]>(`${apiBaseUrl}/Platforms/${platformId}/Tips`);
