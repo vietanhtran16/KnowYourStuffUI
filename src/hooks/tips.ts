@@ -1,6 +1,11 @@
-import { useQuery } from "react-query";
-import { getPlatformTips } from "./../services/api";
+import { useMutation, useQuery } from "react-query";
+import { addTipToPlatform, getPlatformTips, NewTip, Tip } from "./../services/api";
 
 export const useTips = (platformId: string) => {
     return useQuery(["platform-tips", platformId], () => getPlatformTips(platformId));
 };
+
+export const useCreateTip = () =>
+    useMutation<Tip, unknown, { tip: NewTip; platformId: string }>(({ tip, platformId }) =>
+        addTipToPlatform(tip, platformId),
+    );

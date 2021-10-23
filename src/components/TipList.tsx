@@ -10,15 +10,5 @@ interface TipListProps {
 export const TipList: React.FC<TipListProps> = ({ platformId }: TipListProps) => {
     const { isLoading, data: tips } = useTips(platformId);
 
-    if (isLoading) {
-        return <CircularProgress />;
-    }
-
-    return (
-        <>
-            {tips?.map((tip) => (
-                <Tip key={tip.id} {...tip} />
-            ))}
-        </>
-    );
+    return <>{isLoading ? <CircularProgress /> : tips?.map((tip) => <Tip key={tip.id} {...tip} />)}</>;
 };

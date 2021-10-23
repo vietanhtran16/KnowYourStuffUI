@@ -10,7 +10,7 @@ export interface Platform {
 
 export const getPlatforms = () => get<Platform[]>(`${apiBaseUrl}/Platforms`);
 
-interface Tip {
+export interface Tip {
     id: string;
     description: string;
     snippet: string;
@@ -25,3 +25,11 @@ export interface NewPlatform {
 }
 
 export const createPlatform = (newPlatform: NewPlatform) => post<Platform>(`${apiBaseUrl}/Platforms`, newPlatform);
+
+export interface NewTip {
+    description: string;
+    snippet: string;
+}
+
+export const addTipToPlatform = (newTip: NewTip, platformId: string) =>
+    post<Tip>(`${apiBaseUrl}/Platforms/${platformId}/Tips`, newTip);
