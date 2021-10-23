@@ -12,9 +12,9 @@ export const useCreatePlatform = () => {
         onMutate: async (newPlatform: NewPlatform) => {
             await queryClient.cancelQueries(platformsCacheKey);
             const optimisticNewPlatform = { id: "sdfdfdfdf", ...newPlatform };
-            queryClient.setQueryData<Platform[]>(platformsCacheKey, (current) => {
-                return current ? [...current, optimisticNewPlatform] : [optimisticNewPlatform];
-            });
+            queryClient.setQueryData<Platform[]>(platformsCacheKey, (current) =>
+                current ? [...current, optimisticNewPlatform] : [optimisticNewPlatform],
+            );
             return { optimisticNewPlatform };
         },
         onSuccess: () => {

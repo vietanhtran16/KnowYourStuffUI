@@ -34,7 +34,7 @@ export const NewPlatformForm: React.FC = () => {
                         />
                     </Grid>
                     <Grid item>
-                        <Button color="primary" type="submit">
+                        <Button disabled={!newPlatform.name} color="primary" type="submit">
                             Add
                         </Button>
                     </Grid>
