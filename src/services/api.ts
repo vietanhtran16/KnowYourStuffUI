@@ -2,18 +2,18 @@ import axios from "axios";
 
 const apiBaseUrl = "https://localhost:5001/api";
 
-interface PlatformResponse {
+export interface Platform {
     id: string;
     name: string;
     description?: string;
 }
 
 export const getPlatforms = async () => {
-    const result = await axios.get<PlatformResponse[]>(`${apiBaseUrl}/Platforms`);
+    const result = await axios.get<Platform[]>(`${apiBaseUrl}/Platforms`);
     return result.data;
 };
 
-interface TipResponse {
+interface Tip {
     id: string;
     description: string;
     snippet: string;
@@ -21,6 +21,6 @@ interface TipResponse {
 }
 
 export const getPlatformTips = async (platformId: string) => {
-    const result = await axios.get<TipResponse[]>(`${apiBaseUrl}/Platforms/${platformId}/Tips`);
+    const result = await axios.get<Tip[]>(`${apiBaseUrl}/Platforms/${platformId}/Tips`);
     return result.data;
 };

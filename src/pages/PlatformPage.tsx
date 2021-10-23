@@ -1,11 +1,10 @@
 import { CircularProgress } from "@material-ui/core";
 import React from "react";
-import { useQuery } from "react-query";
 import { Platform } from "../components/Platform";
-import { getPlatforms } from "../services/api";
+import { usePlatforms } from "../hooks/platforms";
 
 export const PlatformPage: React.FC = () => {
-    const { isLoading, data: platforms } = useQuery("platforms", getPlatforms);
+    const { isLoading, data: platforms } = usePlatforms();
     if (isLoading) {
         return <CircularProgress />;
     }

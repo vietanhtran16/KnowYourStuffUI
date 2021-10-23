@@ -1,15 +1,14 @@
 import React from "react";
 import { CircularProgress } from "@material-ui/core";
-import { useQuery } from "react-query";
-import { getPlatformTips } from "../services/api";
 import { Tip } from "./Tip";
+import { useTips } from "../hooks/tips";
 
 interface TipListProps {
     platformId: string;
 }
 
 export const TipList: React.FC<TipListProps> = ({ platformId }: TipListProps) => {
-    const { isLoading, data: tips } = useQuery(["platform-tips", platformId], () => getPlatformTips(platformId));
+    const { isLoading, data: tips } = useTips(platformId);
 
     if (isLoading) {
         return <CircularProgress />;
